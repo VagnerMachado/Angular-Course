@@ -12,5 +12,10 @@ import { DUMMY_USERS } from '../dummy-users';
 export class AppComponent {
   title = 'Angular-Course';
   users = DUMMY_USERS;
+
+  // method called from html when there is a click
+  onSelectUser(id: string) {
+    console.log('User selected: ' + id);
+  }
 }
 

@@ -103,3 +103,12 @@ For more information on using the Angular CLI, including detailed command refere
 - styles.css: globas styles for the whole applications
 - index.html: main ui file that will be loaded for visitors
 - main.ts: first code file to be executed in the browser for the visitors
+
+## commands fo creating component
+
+ng generate component user
+ng g c user
+
+both are equivalent and they can be useful to create the files for a new component
+
+- file spec.ts are files needed for automated testing.

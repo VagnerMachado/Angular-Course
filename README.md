@@ -112,3 +112,13 @@ ng g c user
 both are equivalent and they can be useful to create the files for a new component
 
 - file spec.ts are files needed for automated testing.
+
+# Notes
+
+- zone.js : Angualr uses this under the hood to listen to the application changes so components are updated. Programmers do not need to interact with that zone.js as Angular takes care of refreshes / application state.
+
+  - Broadly, sets zones around the app and monitor for changes
+
+- There is another mechanism to update the the state: Signals. This requires signal intruction and code. See usage in the User Component. A signal is an object that stores a values. Angular manages the subscription the the signals to get notified about changes.
+  - This allows for the more fine grained and not zone based updates.
+  - When using signals you also have to use 'computed' for dyanmic calculations with signal getters. See User Component for details.

@@ -6,6 +6,7 @@
         [id]="users[0].id"
         [avatar]="users[0].avatar"
         [name]="users[0].name"
+        (select)="onSelectUser($event)"
       ></app-user>
     </li>
     <li>
@@ -32,7 +33,11 @@
         (select)="onSelectUser($event)"
       ></app-user>
     </li>
-    <!--  (select)="onSelectUser($event)"  select is a value set in .ts  -->
+    <!--  
+      (select)="onSelectUser($event)"  select is emitter in user.component.ts 
+      when the user clicks on the user component, the user component emits the select event with the user id as the payload.
+      that payload is passed in $event to the onSelectUser method in app.component.ts
+    -->
     <li>
       <app-user
         [id]="users[4].id"
@@ -50,4 +55,5 @@
       ></app-user>
     </li>
   </ul>
+  <app-tasks [name]="selectedUserName!"></app-tasks>
 </main>

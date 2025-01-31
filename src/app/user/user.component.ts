@@ -55,9 +55,9 @@
 
   // ======================  START OF INPUT WITH @INPUT ======================
 
-  import {Component, Input, input, computed} from '@angular/core'; //Input allows for the use of setting a property from UI. app.component.html
-// input: to be used with signal
-// Input: to be used with @Input
+  import {Component, Input, input, computed, Output, EventEmitter, output} from '@angular/core'; //Input allows for the use of setting a property from UI. app.component.html
+// input: to be used with signal, output for emitter
+// Input / Output: to be used with @Input
 @Component({
   selector: 'app-user',
   imports: [],
@@ -66,19 +66,30 @@
 })
 export class UserComponent {
 
+  
   // note the required to indicate thru the app that this is a required field, will help catch errors while developing.
-  @Input({required: true}) avatar!: string; // the ! is to stop TS complain about no initial value.
-  @Input() name!: string; // the ! is to stop TS complain about no initial value.
+  // @Input({required: true}) avatar!: string; // the ! is to stop TS complain about no initial value.
+  // @Input() name!: string; // the ! is to stop TS complain about no initial value.
+  // @Input({ required: true }) id!: string;
 
-
-  onSelectUser()
+  @Input({ required: true }) user!: 
   {
-    
+    id: string,
+    name: string,
+    avatar: string
+  };
+  //output is used to emit events to the parent component
+  @Output() select = new EventEmitter<string>(); //<> is optional but good practice to check type emitted
+  // this is the event emitter that will be used in the app.component.html file
+  // select = output<string>(); // used with signals, need to pass the type of data to be emitted
+  clickOnUser() // this is the methods bound to the button.
+  {
+    this.select.emit(this.user.id) // id created when page loads.
   }	
 
   get imagePath()
   {
-    return 'assets/users/' + this.avatar; //the () dereferences the signal aka getter
+    return 'assets/users/' + this.user.avatar; //the () dereferences the signal aka getter
   }
 }
 

@@ -1,5 +1,4 @@
 <!-- BELOW SECTION IS KEPT FOR REFERENCE - USED TO DEMO SINGGLE RANDOM USER AND SIGNAL VS GETTER -->
-
 <!-- <div> -->
 <!-- comment: if you do <button () and place cursor in parenthesis, then click ctrl + space to see list of listeners -->
 <!--<button (click)="onSelectUser()">-->
@@ -25,12 +24,14 @@
   </button>
 </div> -->
 
-<!-- ---------------------------------------------------------------->
+<!------------------------------------------------------------------>
 
 <!-- THIS IS THE HTML FOR @Input. SEE .TS FILE FOR USER -->
 <div>
-  <button (click)="onSelectUser()">
-    <img [src]="imagePath" [alt]="name" />
-    <span>{{ name }}</span>
+  <button (click)="clickOnUser()">
+    <img [src]="imagePath" [alt]="user.name" />
+    <span>{{ user.name }}</span>
   </button>
 </div>
+
+<!------------------------------------------------------------------>

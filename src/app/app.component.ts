@@ -13,10 +13,10 @@ import { TasksComponent } from "./tasks/tasks.component";
 export class AppComponent {
   title = 'Angular-Course';
   users = DUMMY_USERS;
-  selectedUserId = "u0";
+  selectedUserId! : string;
 
-  get selectedUserName() {
-    return this.users.find(user => user.id === this.selectedUserId)?.name;
+  get selectedUser() {
+    return this.users.find(user => user.id === this.selectedUserId);
   }
   // method called from html when there is a click
   onSelectUser(id: string) {

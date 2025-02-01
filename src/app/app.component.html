@@ -1,59 +1,46 @@
 <app-header></app-header>
 <main>
   <ul id="users">
+    @for (item of users; track item.id) {
     <li>
-      <app-user
-        [id]="users[0].id"
-        [avatar]="users[0].avatar"
-        [name]="users[0].name"
-        (select)="onSelectUser($event)"
-      ></app-user>
+      <app-user [user]="item" (select)="onSelectUser($event)"></app-user>
+    </li>
+    }
+    <!-- <li> -->
+    <!--
+    // before having the user, three properties were passed with @Input in .ts for each <li>
+      [id]="users[0].id"
+      [avatar]="users[0].avatar"
+      [name]="users[0].name" -->
+    <!-- <app-user [user]="users[0]" (select)="onSelectUser($event)"></app-user>
     </li>
     <li>
-      <app-user
-        [id]="users[1].id"
-        [avatar]="users[1].avatar"
-        [name]="users[1].name"
-        (select)="onSelectUser($event)"
-      ></app-user>
+      <app-user [user]="users[1]" (select)="onSelectUser($event)"></app-user>
     </li>
     <li>
-      <app-user
-        [id]="users[2].id"
-        [avatar]="users[2].avatar"
-        [name]="users[2].name"
-        (select)="onSelectUser($event)"
-      ></app-user>
+      <app-user [user]="users[2]" (select)="onSelectUser($event)"></app-user>
     </li>
     <li>
-      <app-user
-        [id]="users[3].id"
-        [avatar]="users[3].avatar"
-        [name]="users[3].name"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
+      <app-user [user]="users[3]" (select)="onSelectUser($event)"></app-user>
+    </li> -->
     <!--  
       (select)="onSelectUser($event)"  select is emitter in user.component.ts 
       when the user clicks on the user component, the user component emits the select event with the user id as the payload.
       that payload is passed in $event to the onSelectUser method in app.component.ts
     -->
-    <li>
-      <app-user
-        [id]="users[4].id"
-        [avatar]="users[4].avatar"
-        [name]="users[4].name"
-        (select)="onSelectUser($event)"
-      ></app-user>
+    <!-- <li>
+      <app-user [user]="users[4]" (select)="onSelectUser($event)"></app-user>
     </li>
     <li>
-      <app-user
-        [id]="users[5].id"
-        [avatar]="users[5].avatar"
-        [name]="users[5].name"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
+      <app-user [user]="users[5]" (select)="onSelectUser($event)"></app-user>
+    </li> -->
+    <!-- </li> -->
   </ul>
-  <app-tasks [name]="selectedUserName!"></app-tasks>
+
+  <!-- conditional rendering on user being selected.  -->
+  @if(selectedUser) {
+  <app-tasks [name]="selectedUser.name"></app-tasks>
+  } @else {
+  <p id="Fallback">Select a user to see their tasks</p>
+  }
 </main>

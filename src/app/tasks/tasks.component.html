@@ -15,7 +15,9 @@
     <!--  selectedUserTasks filters the tasks for this user-->
     @for(task of selectedUserTasks; track task.id) {
     <li>
-      <app-task [task]="task" (complete)="onCompleteTask($event)"></app-task>
+      <app-card>
+        <app-task [task]="task" (complete)="onCompleteTask($event)"></app-task>
+      </app-card>
     </li>
     }
   </ul>

@@ -56,15 +56,17 @@
   // ======================  START OF INPUT WITH @INPUT ======================
 
   import {Component, Input, input, computed, Output, EventEmitter, output} from '@angular/core'; //Input allows for the use of setting a property from UI. app.component.html
+  import { User } from '../user/user.model';
+import { CardComponent } from "../shared/card/card.component"; //imports a list of dummy users that can be used in this component
 // input: to be used with signal, output for emitter
 // Input / Output: to be used with @Input
 
-//defining a user 'object' type
-type User = {
-  id: string;
-  name: string;
-  avatar: string;
-};
+//defining a user 'object' type: CAN BE DONE HERE BUT BETTER IN A SEPARATE FILE IN SAME FOLDER USER.MODEL.TS
+// type User = {
+//   id: string;
+//   name: string;
+//   avatar: string;
+// };
 
 //-- type vs interface
 
@@ -76,7 +78,7 @@ type User = {
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
@@ -89,7 +91,8 @@ export class UserComponent {
   // @Input({ required: true }) id!: string;
 
   @Input({ required: true }) user!: User;
-
+  
+  @Input({required: true}) selected! : boolean; // this is a boolean value that will be used in the app.component.html file
   //output is used to emit events to the parent component
   @Output() select = new EventEmitter<string>(); //<> is optional but good practice to check type emitted
   // this is the event emitter that will be used in the app.component.html file

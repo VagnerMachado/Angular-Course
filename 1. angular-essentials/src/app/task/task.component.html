@@ -1,0 +1,12 @@
+<article>
+  <h2>{{ task.title }}</h2>
+  <!-- Using pipes to transform data, import DatePipe from @angular/common -->
+  <!-- https://v17.angular.io/api/common/DatePipe for all date formates -->
+  <time>{{ task.dueDate | date : "fullDate" }}</time>
+  <summary>{{ task.summary }}</summary>
+  <p class="actions">
+    <app-card>
+      <button (click)="oncCompleteTask()">COMPLETED</button>
+    </app-card>
+  </p>
+</article>

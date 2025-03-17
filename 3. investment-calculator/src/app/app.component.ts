@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
+import type { InvestmentInput } from './models/investment-input.model';
+import { InvestmentResultsComponent } from './investment-results/investment-results.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, UserInputComponent],
+  imports: [HeaderComponent, UserInputComponent, InvestmentResultsComponent],
   standalone: true,
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  onCalculateInvestmentResults(data: { enteredInitialInvestment: number, enteredExpectedReturn: number, enteredAnnualInvestment: number, duration : number }) {
-    const { enteredInitialInvestment, enteredExpectedReturn, duration, enteredAnnualInvestment  } = data;
+  onCalculateInvestmentResults(data: InvestmentInput) {
+    
+    //destructure the data object
+    const { enteredInitialInvestment, enteredExpectedReturn, duration, enteredAnnualInvestment } = data;
+
     const annualData = [];
     let investmentValue = enteredInitialInvestment;
   

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { OutletContext } from '@angular/router';
-import { InvestmentInput } from '../investment-input.model';
+import { InvestmentInput } from '../models/investment-input.model';
 
 
 @Component({

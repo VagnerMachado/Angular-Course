@@ -11,6 +11,15 @@ import { InvestmentResultsComponent } from './investment-results/investment-resu
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  resultData?: {
+    year: number;
+    interest: number;
+    valueEndOfYear: number;
+    annualInvestment: number;
+    totalInterest: number;
+    totalAmountInvested: number;
+  }[];
+
   onCalculateInvestmentResults(data: InvestmentInput) {
     
     //destructure the data object
@@ -34,6 +43,7 @@ export class AppComponent {
         totalAmountInvested: enteredInitialInvestment + enteredAnnualInvestment * year,
       });
     }
-  console.log(annualData)
+    console.log(annualData)
+    this.resultData = annualData;
   }
 }

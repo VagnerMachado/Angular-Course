@@ -1,3 +1,5 @@
 <app-header />
 <app-user-input (calculate)="onCalculateInvestmentResults($event)" />
-<app-investment-results [results]="resultData" />
+<!-- <app-investment-results [results]="resultData" />  used with @Input @Output -->
+<app-investment-results [results]="resultData()" />
+<!-- used with observable signal -->

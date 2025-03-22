@@ -1,5 +1,13 @@
 <app-header />
-<app-user-input (calculate)="onCalculateInvestmentResults($event)" />
+<!-- below was used with signal emission -->
+<!-- <app-user-input (calculate)="onCalculateInvestmentResults($event)" /> -->
+
+<!-- using a service -->
+<app-user-input />
 <!-- <app-investment-results [results]="resultData" />  used with @Input @Output -->
-<app-investment-results [results]="resultData()" />
+
+<!-- using a signal -->
+<!-- <app-investment-results [results]="resultData()" /> -->
+
+<app-investment-results />
 <!-- used with observable signal -->

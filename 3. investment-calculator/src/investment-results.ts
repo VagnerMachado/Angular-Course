@@ -2,6 +2,10 @@
 // // e.g., integrate it into a service or component
 // // You may need to tweak it, depending on where and how you use it
 
+        // This code can:
+        //  1. Be moved to App Component .ts file
+        //  2. Be moved to a service file and called from App Component
+
 // function calculateInvestmentResults() {
 //   const annualData = [];
 //   let investmentValue = initialInvestment;

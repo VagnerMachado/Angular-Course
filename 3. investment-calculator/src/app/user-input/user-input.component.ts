@@ -2,6 +2,7 @@ import { Component, EventEmitter, output, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { OutletContext } from '@angular/router';
 import { InvestmentInput } from '../models/investment-input.model';
+import { InvestmentService } from '../investment.service';
 
 
 @Component({
@@ -16,8 +17,8 @@ export class UserInputComponent {
   // used with @Input @Output
   // @Output() calculate = new EventEmitter<InvestmentInput>();
 
-  // used with signal
-  calculate = output<InvestmentInput>()
+  // used with signal, removed as we use sevrvice now
+  // calculate = output<InvestmentInput>()
 
   // usedd with @Input @Output
   // enteredInitialInvestment : string = "100";
@@ -31,6 +32,10 @@ export class UserInputComponent {
   enteredExpectedReturn = signal("5");
   enteredDuration = signal("10");
 
+  // inject the service
+  constructor(private investmentService: InvestmentService) { }
+  
+  // using the service
   formSubmit()
   {
     console.log("Form Submitted") 
@@ -38,7 +43,7 @@ export class UserInputComponent {
     console.log(this.enteredAnnualInvestment + " annual")
     console.log(this.enteredDuration + " duration ")
     console.log(this.enteredExpectedReturn + " expected")
-    this.calculate.emit({
+    this.investmentService.calculateInvestmentResults({
       //the  + in front of it transforms from string to number - setup for @INput @Output
       // enteredInitialInvestment: +this.enteredInitialInvestment,
       // enteredAnnualInvestment: +this.enteredAnnualInvestment,

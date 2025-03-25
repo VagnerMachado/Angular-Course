@@ -1,6 +1,6 @@
 <!-- IF user did not enter data, with signal you () with Input/Output you do not have () -->
-@if(!results()) {
-<p>Please enter values and press calculate: results</p>
+@if(!results) {
+<p>Please enter values and press calculate</p>
 } @else {
 <!-- Case there is data then display -->
 <table>
@@ -19,7 +19,7 @@
     <!-- @for(result of results; track result.year) { -->
 
     <!-- with signal you need () -->
-    @for(result of results(); track result.year) {
+    @for(result of results; track result.year) {
     <tr>
       <td>{{ result.year }}</td>
       <td>{{ result.annualInvestment | currency }}</td>

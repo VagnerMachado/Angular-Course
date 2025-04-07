@@ -1,0 +1,21 @@
+<app-header />
+
+<main>
+  <ul id="users">
+    @for (user of users; track user.id) {
+    <li>
+      <app-user
+        [user]="user"
+        [selected]="user.id === selectedUserId"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+    }
+  </ul>
+  <!-- in the npm start you see error below. fix would be selectedUser.id -->
+  @if (selectedUser) {
+  <app-tasks [userId]="selectedUser" [name]="selectedUser.name" />
+  } @else {
+  <p id="fallback">Select a user to see their tasks!</p>
+  }
+</main>

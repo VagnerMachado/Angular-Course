@@ -212,13 +212,13 @@ button:hover {
   background-color: #551b98;
 }
 
-.icon {
+.button-icon {
   display: inline-block;
   margin-left: 0.5rem;
   transition: transform 0.2s ease-in-out;
 }
 
-button:hover .icon {
+button:hover .button-icon {
   transform: translateX(8px);
 }
 

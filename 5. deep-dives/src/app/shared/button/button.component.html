@@ -1,3 +1,7 @@
 <!-- https://angular.dev/guide/components/selectors -->
 <span> <ng-content /> </span>
-<ng-content select=".class"></ng-content>
+<!-- select can pick up a class or also ngProjectedAs values. -->
+<ng-content select="the-icon">
+  ->
+  <!-- -> this is the fallback case select does not find an icon as the-icon -->
+</ng-content>

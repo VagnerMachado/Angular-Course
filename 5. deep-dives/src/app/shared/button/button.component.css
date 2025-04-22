@@ -1,4 +1,4 @@
-button {
+:host {
   display: inline-block;
   padding: 0.65rem 1.35rem;
   border-radius: 0.25rem;
@@ -10,16 +10,29 @@ button {
   border: none;
 }
 
-button:hover {
+:host:hover {
   background-color: #551b98;
+  /* transform: translateX(4px);
+  transition: transform 0.2s ease-in-out; */
 }
 
-.icon {
-  display: inline-block;
-  margin-left: 0.5rem;
+:host:hover {
+  transform: translateX(4px);
   transition: transform 0.2s ease-in-out;
 }
 
-button:hover .icon {
+/* :host:hover span.button-icon {
   transform: translateX(4px);
-}
+  transition: transform 0.2s ease-in-out; */
+/* } */
+
+/* :host:hover span.button-icon {
+  /* display: inline-block; Ensure transform works 
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+} */
+
+/* :host:hover .button-icon {
+  transform: translateX(4px);
+  transition: transform 0.2s ease-in-out;
+} */

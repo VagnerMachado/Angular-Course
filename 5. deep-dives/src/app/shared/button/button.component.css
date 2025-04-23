@@ -12,27 +12,14 @@
 
 :host:hover {
   background-color: #551b98;
-  /* transform: translateX(4px);
-  transition: transform 0.2s ease-in-out; */
 }
 
-:host:hover {
-  transform: translateX(4px);
-  transition: transform 0.2s ease-in-out;
-}
-
-/* :host:hover span.button-icon {
-  transform: translateX(4px);
-  transition: transform 0.2s ease-in-out; */
-/* } */
-
-/* :host:hover span.button-icon {
-  /* display: inline-block; Ensure transform works 
+.button-icon {
+  display: inline-block;
   margin-left: 0.5rem;
   transition: transform 0.2s ease-in-out;
-} */
+}
 
-/* :host:hover .button-icon {
-  transform: translateX(4px);
-  transition: transform 0.2s ease-in-out;
-} */
+:host:hover .button-icon {
+  transform: translateX(8px);
+}

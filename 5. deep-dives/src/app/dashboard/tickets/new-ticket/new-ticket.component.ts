@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
 
@@ -7,9 +8,10 @@ import { ControlComponent } from "../../../shared/control/control.component";
   standalone: true,
   imports: [ButtonComponent, ControlComponent],
   templateUrl: './new-ticket.component.html',
-  styleUrl: './new-ticket.component.css',
-  encapsulation: ViewEncapsulation.None // this is needed to make the styles work in the parent component
+  styleUrls: ['./new-ticket.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
+  
 export class NewTicketComponent {
 
 }

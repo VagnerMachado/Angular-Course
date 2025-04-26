@@ -1,0 +1,13 @@
+<div>
+  <article>
+    <header>
+      <img [src]="image().src" [alt]="image().alt" />
+      <!-- Interpolation is needed for h2 to indicate that execution is needed to define the proeprty -->
+      <h2>{{ title() }}</h2>
+    </header>
+    <!-- ng content is needed to place content inside this custom componenet -->
+    <!-- in the app we will use <dashboard-item>CONTENT</dashhboard-item> -->
+    <!-- the ng content tag says: PLACE CONTENT FROM USING COMPONENT HERE (after header) -->
+    <ng-content></ng-content>
+  </article>
+</div>

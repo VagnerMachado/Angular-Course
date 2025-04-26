@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-new-ticket',
   standalone: true,
@@ -13,5 +13,9 @@ import { ControlComponent } from "../../../shared/control/control.component";
 })
   
 export class NewTicketComponent {
+
+  submitTicket() {
+    console.log('Ticket submitted!');
+  }
 
 }

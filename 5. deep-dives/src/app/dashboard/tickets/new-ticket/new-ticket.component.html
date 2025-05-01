@@ -1,11 +1,19 @@
 <form (ngSubmit)="onSubmitTicket(titleInput, textareaInput, form)" #form>
   <app-control label="Title">
     <!-- we can get the whole input object like this and pass to method in ngSubmit -->
-    <input name="title" id="title" #titleInput />
+    <input name="title" id="title" #titleInput #input />
   </app-control>
   <br />
+
+  <!-- NOte the #input is for viewChild in control conponent using this in html -->
   <app-control label="Request">
-    <textarea name="request" id="request" rows="3" #textareaInput></textarea>
+    <textarea
+      name="request"
+      id="request"
+      rows="3"
+      #textareaInput
+      #input
+    ></textarea>
   </app-control>
   <br />
   <button appButton>

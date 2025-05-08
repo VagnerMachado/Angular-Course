@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild, ViewChildren } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
@@ -12,7 +12,17 @@ import { FormsModule } from '@angular/forms';
   encapsulation: ViewEncapsulation.None,
 })
   
-export class NewTicketComponent {
+export class NewTicketComponent implements OnInit, AfterViewInit{
+  
+  // this lifecycle hook is called when the component is initialized/initializing
+  ngOnInit(): void {
+    console.log('NewTicketComponent initialized!');
+  }
+ 
+  //this lifecycle hook is called after the view has been fully initialized
+  ngAfterViewInit(): void {
+    //viewChild is initialized 
+console.log("ngAfterview ran in New Ticket")  }
 
   // below is an alternative way to access the form element using ViewChild
   // @ViewChild('form') form!: HTMLInputElement;

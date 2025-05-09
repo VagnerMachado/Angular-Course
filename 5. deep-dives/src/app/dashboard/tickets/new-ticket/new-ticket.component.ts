@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, output, Output, viewChild, ViewChild, ViewChildren } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
@@ -13,6 +13,14 @@ import { FormsModule } from '@angular/forms';
 })
   
 export class NewTicketComponent implements OnInit, AfterViewInit{
+  
+
+  // ---- OUTPUTS / SIGNALS EMIT DATA TO PARENTS. PARENTS MUST LISTEN
+  // old way of doing it, but not preferred way
+  // @Output() add = new EventEmitter<{title: string, text: string}>();
+  
+  //latest way is to use emitter. 
+  add = output<{ title: String, text: string }>();
   
   // this lifecycle hook is called when the component is initialized/initializing
   ngOnInit(): void {
@@ -36,6 +44,7 @@ console.log("ngAfterview ran in New Ticket")  }
   
   onSubmitTicket(titleElement: HTMLInputElement, textareaElement: HTMLTextAreaElement, form: HTMLFormElement) {
     console.log('Ticket submitted!');
+    this.add.emit({ title: titleElement.value, text: textareaElement.value });
     //console.dir shows the properties of the object in the console
     console.dir(titleElement); // Log the title input element
     form.reset(); // Reset the form after submission

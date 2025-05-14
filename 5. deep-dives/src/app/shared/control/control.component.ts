@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
+import { Component, contentChild, ContentChild, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -28,9 +28,21 @@ export class ControlComponent {
 
   label = input.required<string>();
   private el = inject(ElementRef); // this will inject the element ref of the host element of this component
+  
+  // @ContentChild('input', { static: true }) inputElement!: ElementRef; // this will inject the input or textarea element of this component
+  // content child gets the values of elements that are projected into this component using ng-content
+  private inputElement = contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+  
+  // viewChild or ViewChildren can be used to access elements that are part of the component's template with regular html tags
   onClickFromHost() {
     console.log('Control clicked!');
     console.log(this.el); // this will log the host element of this component
+    
+    //for viewChild or ViewChildren, via decoratoryou can use the following line to access the input or textarea element
+    // console.log(this.inputElement.nativeElement + " was clicked as content child"); // this will log the input or textarea element of this component
+    
+    //for viewchild via signal
+    console.log(this.inputElement().nativeElement + " was clicked as content child"); // this will log the input or textarea element of this component
   }
 
 }

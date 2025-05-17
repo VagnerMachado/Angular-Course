@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, output, Output, viewChild, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewChildren } from '@angular/core';
+// Removed incorrect import of 'output' from 'tslib'
 import { ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
@@ -20,7 +21,7 @@ export class NewTicketComponent implements OnInit, AfterViewInit{
   // @Output() add = new EventEmitter<{title: string, text: string}>();
   
   //latest way is to use emitter. 
-  add = output<{ title: String, text: string }>();
+  @Output() add = new EventEmitter<{ title: string, text: string }>();
   
   // this lifecycle hook is called when the component is initialized/initializing
   ngOnInit(): void {

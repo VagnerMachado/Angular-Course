@@ -15,6 +15,11 @@ import { FormsModule } from '@angular/forms';
   
 export class NewTicketComponent implements OnInit, AfterViewInit{
   
+  //two way bindings // cam be used instead of  #textareaInput #input in html form 
+  // left here for reference.
+  
+  enteredTitle = '';
+  enteredText = '';
 
   // ---- OUTPUTS / SIGNALS EMIT DATA TO PARENTS. PARENTS MUST LISTEN
   // old way of doing it, but not preferred way
